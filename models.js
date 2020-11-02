@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-const Sequelize = require('sequelize');
+const {Sequelize, DataTypes} = require('sequelize');
 const sequelize = new Sequelize(process.env.DB_URL,{
     define:{
         timestamps: false
@@ -8,8 +8,9 @@ const sequelize = new Sequelize(process.env.DB_URL,{
 })
 
 const Posts = sequelize.define('posts', {
-    title: Sequelize.STRING,
-    body: Sequelize.TEXT
+    title: DataTypes.STRING,
+    subjects: DataTypes.STRING,
+    body: DataTypes.TEXT
 },{
     tablename:"posts"
 })
